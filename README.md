@@ -1,5 +1,8 @@
 # DGtal-Tutorials-DGMM2022
 
+![](https://dgmm2022.sciencesconf.org/data/header/DGMM6_logo.png)
+![DGtal logo](https://github.com/DGtal-team/DGtal/raw/master/doc/images/logo_DGtal.png) 
+
 ## Get the code
 
 To get the code, the easiest way is to `clone` the github repository. E.g. with the command-line git client:
