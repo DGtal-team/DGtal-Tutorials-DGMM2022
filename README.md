@@ -8,7 +8,7 @@ To get the code, the easiest way is to `clone` the github repository. E.g. with 
 
 (You can also use your favorite GUI git client).
 
-## First build
+## First build
 
 To build DGtal related examples, you would need:
   - C++11 enabled compiler (most c++ compilers are C+11)
