@@ -30,4 +30,4 @@ make
 
 By default, `cmake` will clone a copy of the DGtal repository, set up all the dependencies and build a first `helloworld` program.
 
-## The tutorials
+## The tutorials
