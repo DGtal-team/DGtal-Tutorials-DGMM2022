@@ -27,10 +27,8 @@ int main()
   auto digitized_shape = SH3::makeDigitizedImplicitShape3D( implicit_shape, params );
   auto K               = SH3::getKSpace( params );
   auto binary_image    = SH3::makeBinaryImage( digitized_shape, params );
-  auto surface         = SH3::makeDigitalSurface( binary_image, K, params );
-  auto embedder        = SH3::getCellEmbedder( K );
+  auto surface         = SH3::makeLightDigitalSurface( binary_image, K, params );
   SH3::Cell2Index c2i;
-  auto surfels         = SH3::getSurfelRange( surface, params );
   auto primalSurface   = SH3::makePrimalPolygonalSurface(c2i, surface);
   
   //Need to convert the faces
