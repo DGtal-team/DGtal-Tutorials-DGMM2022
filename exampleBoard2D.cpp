@@ -10,11 +10,11 @@ int main()
 {
   Z2i::Point a(0,0);
   Z2i::Point b(33,43);
-
+  
   Z2i::Domain domain(a,b);
-
+  
   NaiveDSS8<Z2i::Integer> dss(a,b);
-
+  
   Board2D board;
   board << domain;
   board << dss;
@@ -22,6 +22,3 @@ int main()
   board.saveSVG("simple-domain.svg");
   return 0;
 }
-
-
-
