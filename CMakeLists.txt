@@ -10,6 +10,7 @@ include(dgtal)
 include(polyscope)
 
 include_directories(${DGTAL_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable(helloworld helloworld.cpp)
 target_link_libraries(helloworld ${DGTAL_LIBRARIES})
@@ -19,3 +20,11 @@ target_link_libraries(exampleBoard2D ${DGTAL_LIBRARIES})
 
 add_executable(examplePolyscope examplePolyscope.cpp)
 target_link_libraries(examplePolyscope ${DGTAL_LIBRARIES} polyscope)
+
+## Practicals
+
+add_executable(homotopic-thinning practical-homotopic-thinning/homotopic-thinning.cpp)
+target_link_libraries(homotopic-thinning ${DGTAL_LIBRARIES} polyscope)
+
+
+
