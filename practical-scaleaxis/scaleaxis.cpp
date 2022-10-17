@@ -31,11 +31,61 @@ typedef SurfaceMesh< Z3i::RealPoint, Z3i::RealVector >         SurfMesh;
 
 //
 CountedPtr< SH3::BinaryImage > binary_image;
+typedef functors::SimpleThresholdForegroundPredicate<SH3::BinaryImage> Predicate;
+typedef DistanceTransformation< Z3i::Space, Predicate, Z3i::L2Metric> DT;
 
 float scaleAxis=2.0;
 
+void computeLargestInscribedBall()
+{
+  Predicate predicate(*binary_image, 0);
+  Z3i::L2Metric l2metric;
+  DT distance(binary_image->domain() , predicate, l2metric);
+  DT::Value maxval = 0.0;
+  Z3i::Point maxcenter;
+  
+  for(const auto &p: distance.domain())
+    if (distance(p) > maxval)
+    {
+      maxval = distance(p);
+      maxcenter = p;
+    }
+  
+  //Visualization of a point + radius as a ball
+  std::vector<Z3i::Point> listPoints;
+  std::vector<double> listRadius;
+  listPoints.push_back(maxcenter); //Single ball.
+  listRadius.push_back(maxval);
+  auto ps = polyscope::registerPointCloud("Largest inscribed ball", listPoints);
+  auto q  = ps->addScalarQuantity("radius", listRadius);
+  ps->setPointRadiusQuantity(q,false);
+}
+
 void computeRDMA()
 {
+  Predicate predicate(*binary_image, 0);
+  Z3i::L2Metric l2metric;
+  DT distance(binary_image->domain() , predicate, l2metric);
+  typedef PowerMap<DT, L2PowerMetric> PowerMapType;
+  Z3i::L2PowerMetric l2powermetric;
+  PowerMapType powermap(binary_image->domain(), distance, l2powermetric );
+  auto rdma = ReducedMedialAxis<PowerMapType>::getReducedMedialAxisFromPowerMap(powermap);
+ 
+  //Visualization of a point + radius as a ball
+  std::vector<Z3i::Point> listPoints;
+  std::vector<double> listRadius;
+  
+  for(const auto &p: rdma.domain() )
+  {
+    if (rdma(p) != 0)
+    {
+      listPoints.push_back(p); //Ball center.
+      listRadius.push_back(std::sqrt(rdma(p))); //Ball radius
+    }
+  }
+  auto ps = polyscope::registerPointCloud("RDMA", listPoints);
+  auto q  = ps->addScalarQuantity("radius", listRadius);
+  ps->setPointRadiusQuantity(q,false);
   
 }
 
@@ -46,6 +96,10 @@ void computeScaleAxis()
 
 void myCallback()
 {
+  if (ImGui::Button("Compute the largest inscribed ball from DT"))
+    computeLargestInscribedBall();
+  
+  
   if (ImGui::Button("Compute reduced medial axis"))
     computeRDMA();
   
@@ -84,6 +138,7 @@ int main(int argc, char **argv)
                            faces.begin(),
                            faces.end());
   
+  polyscope::registerSurfaceMesh("Digital surface", positions, faces);
   
   
   polyscope::state::userCallback = myCallback;
