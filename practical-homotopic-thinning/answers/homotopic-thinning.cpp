@@ -39,9 +39,9 @@ void registerDigitalSurface( CountedPtr< SH3::BinaryImage > bimage,
   auto params = SH3::defaultParameters() | SHG3::defaultParameters() |  SHG3::parametersGeometryEstimation();
   auto h=1.; //gridstep
   params( "closed", 1)("surfaceComponents", "AnyBig");
-  auto K            = SH3::getKSpace( bimage );
-  auto surface      = SH3::makeDigitalSurface( bimage, K, params );
-  auto primalSurface   = SH3::makePrimalSurfaceMesh(surface);
+  auto K             = SH3::getKSpace( bimage );
+  auto surface       = SH3::makeDigitalSurface( bimage, K, params );
+  auto primalSurface = SH3::makePrimalSurfaceMesh(surface);
 
   std::vector<std::vector<size_t>> faces;
   std::vector<RealPoint> positions;
@@ -78,6 +78,8 @@ bool oneStep( CountedPtr< Z3i::Object26_6 > object )
           ++nb_simple;
         }
     }
+  
+  //Visualization
   trace.info() << "Removed " << nb_simple << " / " << S.size()
                << " points." << std::endl;
   registerDigitalSurface( binary_image, "Thinned object" );
@@ -91,7 +93,7 @@ void mycallback()
     {
       oneStep( the_object );
     }
-  if (ImGui::Button("Screenshots"))
+  if (ImGui::Button("All screenshots"))
     {
       bool finished = false;
       while ( ! finished )
@@ -126,8 +128,9 @@ int main( int argc, char* argv[] )
   const auto K = SH3::getKSpace( binary_image );
   Domain domain( K.lowerBound(), K.upperBound() );
   Z3i::DigitalSet voxel_set( domain );
-  for ( auto p : domain )
-    if ( (*binary_image)( p ) ) voxel_set.insertNew( p );
+  for ( const auto & p : domain )
+    if ( (*binary_image)( p ) ) voxel_set.insert( p );
+  
   the_object = CountedPtr< Z3i::Object26_6 >( new Z3i::Object26_6( dt26_6, voxel_set ) );
   the_object->setTable(functions::loadTable<3>(simplicity::tableSimple26_6));
 
