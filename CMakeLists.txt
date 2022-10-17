@@ -28,5 +28,8 @@ target_link_libraries(examplePolyscope ${DGTAL_LIBRARIES} polyscope)
 add_executable(homotopic-thinning practical-homotopic-thinning/homotopic-thinning.cpp)
 target_link_libraries(homotopic-thinning ${DGTAL_LIBRARIES} polyscope)
 
+add_executable(scaleaxis practical-scaleaxis/scaleaxis.cpp)
+target_link_libraries(scaleaxis ${DGTAL_LIBRARIES} polyscope)
+
 
 
