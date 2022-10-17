@@ -7,6 +7,7 @@
 #include <DGtal/helpers/StdDefs.h>
 #include <DGtal/helpers/Shortcuts.h>
 #include <DGtal/helpers/ShortcutsGeometry.h>
+#include <DGtal/shapes/SurfaceMesh.h>
 
 #include <DGtal/images/SimpleThresholdForegroundPredicate.h>
 #include <DGtal/geometry/volumes/distance/DistanceTransformation.h>
@@ -26,13 +27,32 @@ using namespace Z3i;
 // Using standard 3D digital space.
 typedef Shortcuts<Z3i::KSpace>         SH3;
 typedef ShortcutsGeometry<Z3i::KSpace> SHG3;
+typedef SurfaceMesh< Z3i::RealPoint, Z3i::RealVector >         SurfMesh;
 
+//
+CountedPtr< SH3::BinaryImage > binary_image;
 
+float scaleAxis=2.0;
+
+void computeRDMA()
+{
+  
+}
+
+void computeScaleAxis()
+{
+  
+}
 
 void myCallback()
 {
+  if (ImGui::Button("Compute reduced medial axis"))
+    computeRDMA();
   
+  ImGui::SliderFloat("Scale axis parameter", &scaleAxis, 1.0, 10.0);
   
+  if (ImGui::Button("COmpute scale axis"))
+    computeScaleAxis();
   
 }
 
@@ -51,17 +71,20 @@ int main(int argc, char **argv)
   binary_image = SH3::makeBinaryImage(filename, params );
   auto K            = SH3::getKSpace( binary_image );
   auto surface      = SH3::makeDigitalSurface( binary_image, K, params );
- 
-  // Read voxel object and hands surfaces to polyscope
-  auto params = SH3::defaultParameters()| SHG3::defaultParameters() | SHG3::parametersGeometryEstimation();
-  binary_image = SH3::makeBinaryImage(filename, params );
+  auto primalSurface = SH3::makePrimalSurfaceMesh(surface);
   
-
-  //Preparing predicates
-  Predicate binaryshape(*binary_image, 0);
-  functors::NotPointPredicate<Predicate> negpred(binaryshape);
-  voronoiMap = new VoroMap(binary_image->domain(), binaryshape, Z3i::l2Metric);
-  voronoiMapOutside = new VoroMapOutside(binary_image->domain(), negpred, Z3i::l2Metric);
+  //For the visualization of the digital surface.
+  std::vector<std::vector<size_t>> faces;
+  std::vector<RealPoint> positions;
+  for(size_t face= 0 ; face < primalSurface->nbFaces(); ++face)
+    faces.push_back(primalSurface->incidentVertices( face ));
+  positions = primalSurface->positions();
+  auto surfmesh = SurfMesh(positions.begin(),
+                           positions.end(),
+                           faces.begin(),
+                           faces.end());
+  
+  
   
   polyscope::state::userCallback = myCallback;
   polyscope::show();
