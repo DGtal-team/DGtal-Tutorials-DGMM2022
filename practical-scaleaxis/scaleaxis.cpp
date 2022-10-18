@@ -9,6 +9,8 @@
 #include <DGtal/helpers/ShortcutsGeometry.h>
 #include <DGtal/shapes/SurfaceMesh.h>
 
+#include <DGtal/images/ConstImageFunctorHolder.h>
+
 #include <DGtal/images/SimpleThresholdForegroundPredicate.h>
 #include <DGtal/geometry/volumes/distance/DistanceTransformation.h>
 #include <DGtal/geometry/volumes/distance/VoronoiMap.h>
@@ -66,11 +68,49 @@ void computeRDMA()
   Predicate predicate(*binary_image, 0);
   Z3i::L2Metric l2metric;
   DT distance(binary_image->domain() , predicate, l2metric);
-  typedef PowerMap<DT, L2PowerMetric> PowerMapType;
+  
+  ImageContainerBySTLVector<Z3i::Domain, double> scaledDT(distance.domain());
+  for(auto p: distance.domain())
+    scaledDT.setValue(p, (p-distance.getVoronoiVector(p)).squaredNorm());
+  
+  typedef PowerMap<ImageContainerBySTLVector<Z3i::Domain, double>, L2PowerMetric> PowerMapType;
   Z3i::L2PowerMetric l2powermetric;
-  PowerMapType powermap(binary_image->domain(), distance, l2powermetric );
+  PowerMapType powermap(binary_image->domain(), scaledDT, l2powermetric );
   auto rdma = ReducedMedialAxis<PowerMapType>::getReducedMedialAxisFromPowerMap(powermap);
- 
+  
+  //Visualization of a point + radius as a ball
+  std::vector<Z3i::Point> listPoints;
+  std::vector<double> listRadius;
+  for(const auto &p: rdma.domain() )
+  {
+    if (rdma(p) != 0)
+    {
+      listPoints.push_back(p); //Ball center.
+      listRadius.push_back(distance(p)); //Ball radius
+    }
+  }
+  trace.info()<<"Number of MA balls = "<<listPoints.size();
+  auto ps = polyscope::registerPointCloud("RDMA", listPoints);
+  auto q  = ps->addScalarQuantity("radius", listRadius);
+  ps->setPointRadiusQuantity(q,false);
+  
+}
+
+void computeScaleAxis()
+{
+  Predicate predicate(*binary_image, 0);
+  Z3i::L2Metric l2metric;
+  DT distance(binary_image->domain() , predicate, l2metric);
+  
+  ImageContainerBySTLVector<Z3i::Domain, double> scaledDT(distance.domain());
+  for(auto p: distance.domain())
+    scaledDT.setValue(p, scaleAxis*scaleAxis*(p-distance.getVoronoiVector(p)).squaredNorm());
+  
+  typedef PowerMap<ImageContainerBySTLVector<Z3i::Domain, double>, L2PowerMetric> PowerMapType;
+  Z3i::L2PowerMetric l2powermetric;
+  PowerMapType powermap(binary_image->domain(), scaledDT, l2powermetric );
+  auto rdma = ReducedMedialAxis<PowerMapType>::getReducedMedialAxisFromPowerMap(powermap);
+  
   //Visualization of a point + radius as a ball
   std::vector<Z3i::Point> listPoints;
   std::vector<double> listRadius;
@@ -80,18 +120,12 @@ void computeRDMA()
     if (rdma(p) != 0)
     {
       listPoints.push_back(p); //Ball center.
-      listRadius.push_back(std::sqrt(rdma(p))); //Ball radius
+      listRadius.push_back(1.0/scaleAxis * std::sqrt(scaledDT(p))); //Ball radius
     }
   }
   auto ps = polyscope::registerPointCloud("RDMA", listPoints);
   auto q  = ps->addScalarQuantity("radius", listRadius);
   ps->setPointRadiusQuantity(q,false);
-  
-}
-
-void computeScaleAxis()
-{
-  
 }
 
 void myCallback()
