@@ -102,6 +102,7 @@ void computeScaleAxis()
   Z3i::L2Metric l2metric;
   DT distance(binary_image->domain() , predicate, l2metric);
   
+  //Squared distance image for the powermap
   ImageContainerBySTLVector<Z3i::Domain, double> scaledDT(distance.domain());
   for(auto p: distance.domain())
     scaledDT.setValue(p, scaleAxis*scaleAxis*(p-distance.getVoronoiVector(p)).squaredNorm());
