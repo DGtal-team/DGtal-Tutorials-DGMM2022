@@ -37,5 +37,5 @@ By default, `cmake` will clone a copy of the DGtal repository, set up all the de
 
 ## The tutorials
 
-- [Homotopic thinning](https://codimd.math.cnrs.fr/6GGmGhA8RWWfNoWnABlW9w?view)
-- [2D estimation](https://codimd.math.cnrs.fr/HiXTF5_yRSe8s1SaDwjTPA)
+- [Homotopic thinning](https://codimd.math.cnrs.fr/s/kWlvA1TG8)
+- [2D estimation](https://codimd.math.cnrs.fr/HiXTF5_yRSe8s1SaDwjTPA) FIXME
