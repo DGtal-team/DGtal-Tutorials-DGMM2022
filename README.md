@@ -11,6 +11,10 @@ To get the code, the easiest way is to `clone` the github repository. E.g. with 
 
 (You can also use your favorite GUI git client).
 
+## Discord Server
+
+[https://discord.gg/PFBwRHMN](https://discord.gg/PFBwRHMN)
+
 ## First build
 
 To build DGtal related examples, you would need:
