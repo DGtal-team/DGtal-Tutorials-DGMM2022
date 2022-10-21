@@ -23,4 +23,10 @@ These main steps are based on Visual Studio 2022
 
 
   - Copy the file zconf.h located in zlib1213\zlib-1.2.13\build into the source directory: zlib1213\zlib-1.2.13 
+
+### Boost installation:
+  - Download boost for instance from here: https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.zip
+  - Move it on C:\Program Files\ to make easier the detection from cmake.
+  - Uncompress it (be patient around 10 minutes to uncompress it).
+  - Clic on C:\Program Files\boost_1_80_0\bootstrap.bat
   
