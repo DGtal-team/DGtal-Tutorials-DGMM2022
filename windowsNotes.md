@@ -1,7 +1,11 @@
 # Installation of Dgtal on Windows
 These main steps are based on Visual Studio 2022
 
-## Main steps:
+## Dependancies installation
+
+### Install Git:
+  - https://git-scm.com/download/win
+  
 ### Install Cmake:
   - https://cmake.org/download/
   - During the installation select the installation be sure to select the option to have it the system path:
@@ -30,3 +34,12 @@ These main steps are based on Visual Studio 2022
   - Uncompress it (be patient around 10 minutes to uncompress it).
   - Clic on C:\Program Files\boost_1_80_0\bootstrap.bat
   
+## DGtal build
+
+### From a powershell:
+  - Clone the DGtal project:
+     ``git clone https://github.com/DGtal-team/DGtal.git``
+  - Go to the DGtal dir and make the classical: ```mkdir build; cd build;``
+  - Then from the path of the previous steps:
+   ``cmake .. -DZLIB_LIBRARY="C:\Users\bkerautret\zlib1213\zlib-1.2.13\build\Debug\" -DZLIB_INCLUDE_DIR="C:\Users\bkerautret\zlib1213\zlib-1.2.13``   
+
