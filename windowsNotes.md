@@ -13,7 +13,7 @@ These main steps are based on Visual Studio 2022
 ![Capture d’écran 2022-10-21 155556](https://user-images.githubusercontent.com/772865/197239144-99bbe38d-8648-41b1-81be-e6c5387b65ee.png)
 
 ### Zlib installation:
-  -  Get lib source: http://zlib.net/zlib1213.zip or here https://ipol-geometry.loria.fr/Sites/zlib-1.2.11.zip
+  -  Get lib source: http://zlib.net/zlib1213.zip (copy past link in new windows since the url is not in https) or here https://ipol-geometry.loria.fr/Sites/zlib-1.2.11.zip
   -  Unzip the library in the directory of your choice.
   -  Open PowerShell:
   -  Go to the directory from the unziped library.
