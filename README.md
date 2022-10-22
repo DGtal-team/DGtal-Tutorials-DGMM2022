@@ -11,6 +11,10 @@ To get the code, the easiest way is to `clone` the github repository. E.g. with 
 
 (You can also use your favorite GUI git client).
 
+## Discord Server
+
+[https://discord.gg/PFBwRHMN](https://discord.gg/PFBwRHMN)
+
 ## First build
 
 To build DGtal related examples, you would need:
@@ -38,4 +42,6 @@ By default, `cmake` will clone a copy of the DGtal repository, set up all the de
 ## The tutorials
 
 - [Homotopic thinning](https://codimd.math.cnrs.fr/s/kWlvA1TG8)
-- [2D estimation](https://codimd.math.cnrs.fr/HiXTF5_yRSe8s1SaDwjTPA) FIXME
+- [2D estimation](https://codimd.math.cnrs.fr/s/G4qG3UGw7)
+- [Digital Scale Axis Transform](https://codimd.math.cnrs.fr/s/Qr5Sz3wZ-)
+- [Choose-your-own-adventure practical](https://codimd.math.cnrs.fr/s/ECHVYx8TE)
