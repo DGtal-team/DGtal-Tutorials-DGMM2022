@@ -12,7 +12,7 @@ These main steps are based on Visual Studio 2022, and the overall demarch is to 
     <center> <img width="50%" src="https://user-images.githubusercontent.com/772865/197339178-ebaf2aaf-7a70-40ba-8789-cc157e40a72c.png"></img> </center>
 
 ### Zlib installation:
-  -  Get [ZLib](http://zlib.net) source: http://zlib.net/zlib1213.zip (copy past link in new windows since the url is not in https) or [here](https://ipol-geometry.loria.fr/Sites/zlib-1.2.11.zip)
+  -  Get [ZLib](http://zlib.net) source: http://zlib.net/zlib1213.zip (copy past link in new windows since the url is not in https) or [here](https://ipol-geometry.loria.fr/Sites/zlib-1.2.11.zip).
   -  Unzip the library in the directory of your choice.
   -  Open PowerShell.
   -  Go to the directory from the unziped library.
@@ -50,4 +50,4 @@ These main steps are based on Visual Studio 2022, and the overall demarch is to 
    - Open the **DGtal.sln** VS  project generated from the previous step.
    - Generate the solution from VS code interface.
    ![Capture d’écran 2022-10-21 182709](https://user-images.githubusercontent.com/772865/197244027-9cc913d2-d492-435c-bc95-e9734e21a321.png)
-   - If now errors you can now exploit the generated library 🎉
+   - If now errors you can now exploit the generated library 🎉.
