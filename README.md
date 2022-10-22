@@ -23,7 +23,7 @@ To build DGtal related examples, you would need:
   - [boost](http://boost.org) (>= 1.50).
   - the zlib package (already installed in many linux/macos distributions)
 
-For windows users, you can follows this [installations](https://github.com/DGtal-team/DGtal-Tutorials-DGMM2022/blob/main/windowsDGtalInstall.md) steps.
+For windows users, you can follow these [installation](https://github.com/DGtal-team/DGtal-Tutorials-DGMM2022/blob/main/windowsDGtalInstall.md) steps.
 
 For polyscope based practicals, you may need X11/OpenGL headers (e.g. `sudo apt-get install xorg-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev` on ubuntu). For more details, check [polyscope Building page](https://polyscope.run/building/).
 
