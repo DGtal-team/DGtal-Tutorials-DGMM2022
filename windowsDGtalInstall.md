@@ -1,5 +1,5 @@
 # Installation of Dgtal on Windows
-These main steps are based on Visual Studio 2022, and the overall demarch is to generate first a **.sln** project from *cmake* command line and then open and build the project unde VS 2022. These steps were tested on Windows 10.
+These main steps are based on Visual Studio 2022, and the overall workflow is to generate first a **.sln** project from *cmake* command line and then open and build the project under VS 2022. These steps were tested on Windows 10.
 
 ## Dependancies installation
 
