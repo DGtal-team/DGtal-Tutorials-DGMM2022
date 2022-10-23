@@ -108,7 +108,7 @@ void computeScaleAxis()
   //Squared distance image for the powermap
   SquaredDT scaledDT(distance.domain());
   for(auto p: distance.domain())
-    scaledDT.setValue(p, scaleAxis*scaleAxis*(p-distance.getVoronoiVector(p)).squaredNorm());
+    scaledDT.setValue(p, scaleAxis*scaleAxis*(p-distance.getVoronoiSite(p)).squaredNorm());
   
   Z3i::L2PowerMetric l2powermetric;
   PowerMapType powermap(binary_image->domain(), scaledDT, l2powermetric );
