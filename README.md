@@ -45,5 +45,6 @@ By default, `cmake` will clone a copy of the DGtal repository, set up all the de
 
 - [Homotopic thinning](https://codimd.math.cnrs.fr/s/kWlvA1TG8)
 - [2D estimation](https://codimd.math.cnrs.fr/s/G4qG3UGw7)
+- [3D geometric estimations](https://codimd.math.cnrs.fr/s/s2pNRQuga)
 - [Digital Scale Axis Transform](https://codimd.math.cnrs.fr/s/Qr5Sz3wZ-)
 - [Choose-your-own-adventure practical](https://codimd.math.cnrs.fr/s/ECHVYx8TE)
