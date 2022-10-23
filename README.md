@@ -23,6 +23,8 @@ To build DGtal related examples, you would need:
   - [boost](http://boost.org) (>= 1.50).
   - the zlib package (already installed in many linux/macos distributions)
 
+For windows users, you can follow these [installation](https://github.com/DGtal-team/DGtal-Tutorials-DGMM2022/blob/main/windowsDGtalInstall.md) steps.
+
 For polyscope based practicals, you may need X11/OpenGL headers (e.g. `sudo apt-get install xorg-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev` on ubuntu). For more details, check [polyscope Building page](https://polyscope.run/building/).
 
 From cmake, you can create the DGtal-DGMM2022 tutorial project, either from the commandline, or from a cmake GUI. E.g., from the commandline (using a Makefile target):
@@ -43,5 +45,5 @@ By default, `cmake` will clone a copy of the DGtal repository, set up all the de
 
 - [Homotopic thinning](https://codimd.math.cnrs.fr/s/kWlvA1TG8)
 - [2D estimation](https://codimd.math.cnrs.fr/s/G4qG3UGw7)
--
+- [Digital Scale Axis Transform](https://codimd.math.cnrs.fr/s/Qr5Sz3wZ-)
 - [Choose-your-own-adventure practical](https://codimd.math.cnrs.fr/s/ECHVYx8TE)
