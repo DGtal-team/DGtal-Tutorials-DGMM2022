@@ -75,7 +75,7 @@ void computeRDMA()
   
   SquaredDT scaledDT(distance.domain());
   for(auto p: distance.domain())
-    scaledDT.setValue(p, (p-distance.getVoronoiVector(p)).squaredNorm());
+    scaledDT.setValue(p, (p-distance.getVoronoiSite(p)).squaredNorm());
   
   Z3i::L2PowerMetric l2powermetric;
   PowerMapType powermap(binary_image->domain(), scaledDT, l2powermetric );
