@@ -37,7 +37,7 @@ target_link_libraries(2D-estimation-template ${DGTAL_LIBRARIES})
 add_executable(3D-estimation-template practical-3D-estimation/3D-estimation-template.cpp)
 target_link_libraries(3D-estimation-template ${DGTAL_LIBRARIES} polyscope)
 
-add_executable(3D-estimation practical-3D-estimation/3D-estimation.cpp)
-target_link_libraries(3D-estimation ${DGTAL_LIBRARIES} polyscope)
+#add_executable(3D-estimation practical-3D-estimation/answers/3D-estimation.cpp)
+#target_link_libraries(3D-estimation ${DGTAL_LIBRARIES} polyscope)
 
 
