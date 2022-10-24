@@ -25,7 +25,7 @@ To build DGtal related examples, you would need:
 
 On linux, deps could be installed with:
 ```
-sudo apt-get cmake git libboost-all-dev
+sudo apt-get cmake git libboost-all-dev build-essential
 ```
 
 
