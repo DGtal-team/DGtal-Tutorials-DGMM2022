@@ -5,8 +5,8 @@
 
 * [David Coeurjolly](https://perso.liris.cnrs.fr/david.coeurjolly)
 * [Jacques-Olivier Lachaud](http://www.lama.univ-savoie.fr/pagesmembres/lachaud/People/LACHAUD-JO/person.html)
-* [Tristan Roussillon](https://perso.liris.cnrs.fr/tristan.rousillon)
-* [Bertrand Kerautret](https://perso.liris.cnrs.fr/bertrand.kerautret)
+* [Tristan Roussillon](https://perso.liris.cnrs.fr/tristan.roussillon/)
+* [Bertrand Kerautret](https://liris.cnrs.fr/page-membre/bertrand-kerautret)
 
 
 ## Get the code
