@@ -3,6 +3,12 @@
 ![](https://dgmm2022.sciencesconf.org/data/header/DGMM6_logo.png)
 ![DGtal logo](https://github.com/DGtal-team/DGtal/raw/master/doc/images/logo_DGtal.png) 
 
+* [David Coeurjolly](https://perso.liris.cnrs.fr/david.coeurjolly)
+* [Jacques-Olivier Lachaud](http://www.lama.univ-savoie.fr/pagesmembres/lachaud/People/LACHAUD-JO/person.html)
+* [Tristan Roussillon](https://perso.liris.cnrs.fr/tristan.rousillon)
+* [Bertrand Kerautret](https://perso.liris.cnrs.fr/bertrand.kerautret)
+
+
 ## Get the code
 
 To get the code, the easiest way is to `clone` the github repository. E.g. with the command-line git client:
