@@ -173,16 +173,17 @@ void myCallback()
   ImGui::RadioButton("CTrivial", &Estimator, 1); ImGui::SameLine();
   ImGui::RadioButton("II",       &Estimator, 2);
   ImGui::Text( "Normal error loo=%f   l2=%f", ErrorLoo, ErrorL2 );
-  double sphere9_area = 4.0 * M_PI * 9.0 * 9.0;
-  // ImGui::Text( "True area sphere9=%f", sphere9_area );
+  // If you wish to compare with the exact phere9 true area:
+  // double target_area = 4.0 * M_PI * 9.0 * 9.0;
   ImGui::Text( "Expected area0=%f area1=%f", Area0, Area1 );
   ImGui::Text( "Computed area0=%f area1=%f", EstArea0, EstArea1 );
-  ImGui::Text( "Error Expected area0=%f%% area1=%f%%",
-               100.0 * fabs( Area0 - sphere9_area ) / sphere9_area,
-               100.0 * fabs( Area1 - sphere9_area ) / sphere9_area );
+  // ImGui::Text( "Error Expected area0=%f%% area1=%f%%",
+  //              100.0 * fabs( Area0 - target_area ) / target_area,
+  //              100.0 * fabs( Area1 - target_area ) / target_area );
+  double target_area = ( Area0 + Area1 ) / 2.0;
   ImGui::Text( "Error Computed area0=%f%% area1=%f%%",
-               100.0 * fabs( EstArea0 - sphere9_area ) / sphere9_area,
-               100.0 * fabs( EstArea1 - sphere9_area ) / sphere9_area );
+               100.0 * fabs( EstArea0 - target_area ) / target_area,
+               100.0 * fabs( EstArea1 - target_area ) / target_area );
 }
 
 int main()
