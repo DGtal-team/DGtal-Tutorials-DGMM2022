@@ -10,7 +10,7 @@ SET(BUILD_EXAMPLES OFF)
 
 FetchContent_Declare(
     DGtal
-    GIT_REPOSITORY https://github.com/DGtal-team/DGtal.git
+    GIT_REPOSITORY https://github.com/kerautret/DGtal.git
     GIT_SHALLOW    TRUE
     )
 FetchContent_MakeAvailable(DGtal)
