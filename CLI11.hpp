@@ -1263,7 +1263,7 @@ void sum_flag_vector(const std::vector<std::string> &flags, T &output) {
 template <typename T,
           enable_if_t<std::is_integral<T>::value && std::is_signed<T>::value, detail::enabler> = detail::dummy>
 void sum_flag_vector(const std::vector<std::string> &flags, T &output) {
-    std:::int64_t count{0};
+    std::uint64_t count{0};
     for(auto &flag : flags) {
         count += detail::to_flag_value(flag);
     }
