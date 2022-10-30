@@ -72,6 +72,7 @@ bool oneStep( CountedPtr< Z3i::Object26_6 > object )
   *
   *
   */
+  return true;
 }
 
 // Polyscope GUI Callback
