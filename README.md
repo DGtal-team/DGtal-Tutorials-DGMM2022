@@ -8,7 +8,11 @@
 * [Tristan Roussillon](https://perso.liris.cnrs.fr/tristan.roussillon/)
 * [Bertrand Kerautret](https://liris.cnrs.fr/page-membre/bertrand-kerautret)
 
+## The slides
 
+* Keynote: [part1](https://perso.liris.cnrs.fr/david.coeurjolly/talk/dgtal-tutorial/DGtalDGMM2022-part1.key), [part2](https://perso.liris.cnrs.fr/david.coeurjolly/talk/dgtal-tutorial/DGtalDGMM2022-part2.key)
+* pdf export: [part1](https://perso.liris.cnrs.fr/david.coeurjolly/talk/dgtal-tutorial/DGtalDGMM2022-part1.pdf), [part2](https://perso.liris.cnrs.fr/david.coeurjolly/talk/dgtal-tutorial/DGtalDGMM2022-part2.pdf)
+ 
 ## Get the code
 
 To get the code, the easiest way is to `clone` the github repository. E.g. with the command-line git client:
