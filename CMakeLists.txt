@@ -6,8 +6,9 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(dgtal)
 include(polyscope)
+add_definitions(-DNO_ADD_STBIMAGE_IMPLEMENT)
+include(dgtal)
 
 include_directories(${DGTAL_INCLUDE_DIRS})
 include_directories(${PROJECT_SOURCE_DIR})
