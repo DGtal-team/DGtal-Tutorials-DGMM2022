@@ -12,6 +12,7 @@ FetchContent_Declare(
     DGtal
     GIT_REPOSITORY https://github.com/DGtal-team/DGtal.git
     GIT_SHALLOW    TRUE
+    GIT_TAG     1.3
     )
 FetchContent_MakeAvailable(DGtal)
 
